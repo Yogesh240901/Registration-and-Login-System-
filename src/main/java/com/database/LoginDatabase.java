@@ -16,7 +16,7 @@ public class LoginDatabase {
 		String password = loginBean.getPassword();
 		
 		String dbusername ="";
-		String dbpassword="";
+		String dbpassword ="";
 		
 		String url ="jdbc:mysql://localhost:3306/sports";
 		String uname ="root";
@@ -27,9 +27,9 @@ public class LoginDatabase {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(url,uname,pass);
 		
-			PreparedStatement pstmt=null; //create statement
+			PreparedStatement pstmt=null; 
 
-            pstmt=con.prepareStatement("select * from turf where username=? and password=?"); //sql select query 
+            pstmt=con.prepareStatement("select * from turf where username=? and password=?"); 
 
             pstmt.setString(1,username);
 
@@ -41,7 +41,7 @@ public class LoginDatabase {
 
             {    
 
-                dbusername=rs.getString("username");   //fetchable database record username and password store in this two variable dbusername,dbpassword above created 
+                dbusername=rs.getString("username");    
 
                 dbpassword=rs.getString("password"); 
 
@@ -49,7 +49,7 @@ public class LoginDatabase {
 
                 if(username.equals(dbusername) && password.equals(dbpassword)){
 
-                    return "SUCCESS LOGIN"; //if valid condition return string "SUCCESS LOGIN" 
+                    return "SUCCESS LOGIN"; 
 
                 }
 
